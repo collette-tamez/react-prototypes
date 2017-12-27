@@ -26,6 +26,7 @@ class ContactFrom extends Component {
     handleSubmit(event){
         event.preventDefault();
         console.log(this.state.form);
+        this.props.add(this.state.form);
     }
     render(){
         const {email, firstName, lastName, phone} = this.state.form;
