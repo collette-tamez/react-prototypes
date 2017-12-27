@@ -5,7 +5,9 @@ const App = (props) => {
     return (
         <div className={"container"}>
             <h1 className={"text-center"}>Address Book</h1>
-            <ContactList />
+            <div className="row">
+                <ContactList />
+            </div>
         </div>
     )
 }
