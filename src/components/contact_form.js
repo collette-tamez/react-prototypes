@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Field from './field';
 
 class ContactFrom extends Component {
     constructor(props){
@@ -6,7 +7,9 @@ class ContactFrom extends Component {
         this.state = {
             form: {
                 firstName : '',
-                lastName : ''
+                lastName : '',
+                phone : '',
+                email : ''
             }
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,15 +28,29 @@ class ContactFrom extends Component {
         console.log(this.state.form);
     }
     render(){
-        const {firstName, lastName} = this.state.form;
+        const {email, firstName, lastName, phone} = this.state.form;
         return(
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input name="firstName" type="text" className="form-control" value={firstName} onChange={this.handleInputChange}/>
-                    <label>Last Name</label>
-                    <input name="lastName" type="text" className="form-control" value={lastName} onChange={this.handleInputChange}/>
-                </div>
+                <Field name="firstName"
+                       label="First Name"
+                       type="text"
+                       value={firstName}
+                       onChange={this.handleInputChange} />
+                <Field name="lastName"
+                       label="Last Name"
+                       type="text"
+                       value={lastName}
+                       onChange={this.handleInputChange} />
+                <Field name="phone"
+                       label="Phone Number"
+                       type="tel"
+                       value={phone}
+                       onChange={this.handleInputChange} />
+                <Field name="email"
+                       label="Email"
+                       type="email"
+                       value={email}
+                       onChange={this.handleInputChange} />
                 <button>Add Contact</button>
             </form>
         )
